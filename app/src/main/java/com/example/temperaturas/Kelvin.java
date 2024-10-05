@@ -3,25 +3,20 @@ package com.example.temperaturas;
 public class Kelvin extends Grado{
 
     public Kelvin(double grado){
-        this.numero_grados = grado;
+        this.setValor(grado);
+        this.setUnidad("K");
     }
 
-    @Override
-    public double parse(Kelvin kel) {
-        return  this.getGrado();
+    public Kelvin parse(Celcius cel) {
+        double valor = cel.getValor() + 273.15;
+        Kelvin kelvin = new Kelvin(valor);
+        return kelvin;
     }
 
-    @Override
-    public double parse(Celcius cel) {
-        double grados_cel =  cel.getGrado();
-        double resultado = grados_cel + 273.15;
-        return resultado;
-    }
 
-    @Override
-    public double parse(Farenheit far) {
-        double grados_far = far.getGrado();
-        double resultado = (grados_far -32) * 5/9 + 273.15;
-        return resultado;
+    public Kelvin parse(Farenheit far) {
+        double valor = (far.getValor() - 32) * 5/9 + 273.15;
+        Kelvin kelvin = new Kelvin(valor);
+        return kelvin;
     }
 }

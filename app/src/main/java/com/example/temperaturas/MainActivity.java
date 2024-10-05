@@ -18,74 +18,123 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnAccion1 = findViewById(R.id.button);
+        Button btnAccion1 = findViewById(R.id.button1);
         Button btnAccion2 = findViewById(R.id.button2);
         Button btnAccion3 = findViewById(R.id.button3);
-
-        EditText ingresarCelcius = findViewById(R.id.editTextCelcius);
-        EditText ingresarKelvin = findViewById(R.id.editTextKelvin);
-        EditText ingresarFarenheit = findViewById(R.id.editTextFarenheit);
-
+        Button btnAccion4 = findViewById(R.id.button4);
+        Button btnAccion5 = findViewById(R.id.button5);
+        Button btnAccion6 = findViewById(R.id.button6);
 
 
-        TextView mostrarCelciusKelvin = findViewById(R.id.textViewCelciusKelvin);
-        TextView mostrarCelciusFarenheit = findViewById(R.id.textViewCelciusFarenheit);
-
-        TextView mostrarFarenheitCelcius = findViewById(R.id.textViewFarenheitCelcius);
-        TextView mostrarFarenheitKelvin = findViewById(R.id.textViewFarenheitKelvin);
-
-        TextView mostrarKelvinCelcius = findViewById(R.id.textViewKelvinCelcius);
-        TextView mostrarKelvinFarenheit = findViewById(R.id.textViewKelvinFarenheit);
+//        TextView mostrarCelciusKelvin = findViewById(R.id.textViewCelciusKelvin);
+//        TextView mostrarCelciusFarenheit = findViewById(R.id.textViewCelciusFarenheit);
+//
+//        TextView mostrarFarenheitCelcius = findViewById(R.id.textViewFarenheitCelcius);
+//        TextView mostrarFarenheitKelvin = findViewById(R.id.textViewFarenheitKelvin);
+//
+//        TextView mostrarKelvinCelcius = findViewById(R.id.textViewKelvinCelcius);
+//        TextView mostrarKelvinFarenheit = findViewById(R.id.textViewKelvinFarenheit);
 
 
 
         btnAccion1.setOnClickListener(v->{
-            double celcius = Double.parseDouble(ingresarCelcius.getText().toString());
-            double kelvin = Double.parseDouble(ingresarKelvin.getText().toString());
-            double farenheit = Double.parseDouble(ingresarFarenheit.getText().toString());
+            //Celcius por defefecto
+            EditText valor_kelvin_texto = findViewById(R.id.editTextText1);
+            TextView mostrar_final = findViewById(R.id.textView);
 
-            Celcius cel = new Celcius(celcius);
-            Kelvin kel = new Kelvin(kelvin);
-            Farenheit far = new Farenheit(farenheit);
+            double valor = Double.parseDouble(valor_kelvin_texto.getText().toString());
 
-            String resKel = cel.parse(kel) + "";
-            String resFar = cel.parse(far) + "";
+            Celcius celcius = new Celcius(0);
+            Kelvin kelvin = new Kelvin(valor);
+//            double kelvin = Double.parseDouble(ingresarKelvin.getText().toString());
+//            double farenheit = Double.parseDouble(ingresarFarenheit.getText().toString());
 
-            mostrarCelciusKelvin.setText(resKel);
-            mostrarCelciusFarenheit.setText(resFar);
+             Celcius resultado = celcius.parse(kelvin);
+
+             mostrar_final.setText(resultado.getValor()+resultado.getUnidad());
+
         });
 
         btnAccion2.setOnClickListener(v->{
-            double celcius = Double.parseDouble(ingresarCelcius.getText().toString());
-            double kelvin = Double.parseDouble(ingresarKelvin.getText().toString());
-            double farenheit = Double.parseDouble(ingresarFarenheit.getText().toString());
+            EditText valor_farenheit_texto = findViewById(R.id.editTextText2);
+            TextView mostrar_final = findViewById(R.id.textView);
 
-            Celcius cel = new Celcius(celcius);
-            Kelvin kel = new Kelvin(kelvin);
-            Farenheit far = new Farenheit(farenheit);
+            double valor = Double.parseDouble(valor_farenheit_texto.getText().toString());
 
-            String resCel = far.parse(cel) + "";
-            String resKel = far.parse(kel) + "";
+            Celcius celcius = new Celcius(0);
+            Farenheit farenheit = new Farenheit(valor);
 
-            mostrarFarenheitCelcius.setText(resCel);
-            mostrarFarenheitKelvin.setText(resKel);
+
+            Celcius resultado = celcius.parse(farenheit);
+
+            mostrar_final.setText(resultado.getValor()+resultado.getUnidad());
         });
 
         btnAccion3.setOnClickListener(v->{
-            double celcius = Double.parseDouble(ingresarCelcius.getText().toString());
-            double kelvin = Double.parseDouble(ingresarKelvin.getText().toString());
-            double farenheit = Double.parseDouble(ingresarFarenheit.getText().toString());
+            EditText valor_celcius_texto = findViewById(R.id.editTextText3);
+            TextView mostrar_final = findViewById(R.id.textView2);
 
-            Celcius cel = new Celcius(celcius);
-            Kelvin kel = new Kelvin(kelvin);
-            Farenheit far = new Farenheit(farenheit);
+            double valor = Double.parseDouble(valor_celcius_texto.getText().toString());
 
-            String resCel = kel.parse(cel) + "";
-            String resFar = kel.parse(far) + "";
+            Kelvin kelvin = new Kelvin(0);
+            Celcius celcius = new Celcius(valor);
 
-            mostrarKelvinCelcius.setText(resCel);
-            mostrarKelvinFarenheit.setText(resFar);
+
+            Kelvin resultado = kelvin.parse(celcius);
+
+            mostrar_final.setText(resultado.getValor()+resultado.getUnidad());
+
+
         });
+
+        btnAccion4.setOnClickListener(v->{
+            EditText valor_farenheit_texto = findViewById(R.id.editTextText4);
+            TextView mostrar_final = findViewById(R.id.textView2);
+
+            double valor = Double.parseDouble(valor_farenheit_texto.getText().toString());
+
+            Kelvin kelvin = new Kelvin(0);
+            Farenheit farenheit = new Farenheit(valor);
+
+
+            Kelvin resultado = kelvin.parse(farenheit);
+
+            mostrar_final.setText(resultado.getValor()+resultado.getUnidad());
+
+        });
+
+        btnAccion5.setOnClickListener(v->{
+            EditText valor_celcius_texto = findViewById(R.id.editTextText5);
+            TextView mostrar_final = findViewById(R.id.textView3);
+
+            double valor = Double.parseDouble(valor_celcius_texto.getText().toString());
+
+            Farenheit farenheit = new Farenheit(0);
+            Celcius celcius = new Celcius(valor);
+
+
+            Farenheit resultado = farenheit.parse(celcius);
+
+            mostrar_final.setText(resultado.getValor()+resultado.getUnidad());
+
+        });
+
+        btnAccion6.setOnClickListener(v->{
+            EditText valor_kelvin_texto = findViewById(R.id.editTextText6);
+            TextView mostrar_final = findViewById(R.id.textView3);
+
+            double valor = Double.parseDouble(valor_kelvin_texto.getText().toString());
+
+            Farenheit farenheit = new Farenheit(0);
+            Kelvin kelvin = new Kelvin(valor);
+
+
+            Farenheit resultado = farenheit.parse(kelvin);
+
+            mostrar_final.setText(resultado.getValor()+resultado.getUnidad());
+
+        });
+
 
     }
 }

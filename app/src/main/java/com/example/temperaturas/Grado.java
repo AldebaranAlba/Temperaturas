@@ -1,25 +1,29 @@
 package com.example.temperaturas;
 
-public abstract class Grado  {
+public class Grado {
 
-    public double numero_grados;
+    //Cuando creo un nueva clase creo un nuevo tipo de dato
+
+    public double valor;
+    public String unidad;
 
     public Grado(){
 
     }
 
-    public double getGrado(){
-        return numero_grados;
+    public double getValor() {
+        return valor;
     }
 
-    public void setGrado(double nuevo_grado){
-        this.numero_grados = nuevo_grado;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
-    public abstract double parse(Kelvin kel);
+    public String getUnidad() {
+        return unidad;
+    }
 
-    public abstract double parse(Celcius cel);
-
-    public abstract double parse(Farenheit far);
-
+    public void setUnidad(String unidad) {
+        this.unidad = unidad;
+    }
 }
